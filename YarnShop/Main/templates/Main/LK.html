@@ -1,0 +1,54 @@
+
+
+{% extends 'Main/layout.html' %}
+{% load static %}
+
+{% block title %}
+Личный кабинет | Yarniverse Toys - онлайн-магазин материалов для вязания
+{% endblock %}
+
+{% block content %}
+<div class="profile_main">
+    <div class="profile_main_inner">
+      <div class="profile_main_left">
+          <div class="profile_main_left_inner">
+              {% if user_profile.avatar %}<img style="width: 100px; margin: 0 0 10px 40%;" src="{{ user_profile.avatar.url }}" alt="">
+              {% else %}
+              <img style="width: 100px; margin: 0 0 10px 40%;" src="{% static 'Main/img/profile.png' %}" alt="">
+              {% endif %}
+              <h1>{{ user_profile.name }} {{ user_profile.surname }}</h1>
+              <div class="profile_main_menu">
+               <div class="profile_main_menu_main_"><a href="">Профиль</a></div>
+
+               <div class="profile_main_menu_main_"><a href="">Заказы</a></div>
+            <div class="profile_main_menu_main_"><a href="">Отзывы</a></div>
+              <div class="profile_main_menu_main_"><a href="">Мастер-классы и схемы</a></div>
+               <div class="profile_main_menu_main_"><a href="">Подписки</a></div>
+               <div class="profile_main_menu_main_"><a href="">О приложении</a></div>
+              <div class="profile_main_menu_main_"><a href="{%url 'logout' %}">Выйти</a></div>
+       </div>
+          </div>
+   </div>
+      <div class="profile_main_right">
+          <div class="profile_main_right_top">
+          <h2>Ваш профиль </h2>
+          </div>
+          <div class="profile_data">
+          <ul>Имя: {{ user_profile.name }}</ul>
+          <ul>Фамилия: {{ user_profile.surname }}</ul>
+          <ul>Номер телефона: {% if user_profile.phone_number %}{{ user_profile.phone_number }} {% else %} не указан {% endif %}</ul>
+          <ul>Email: {{ user_profile.email }}</ul>
+          <ul>Псевдоним: {% if user_profile.nickname %}{{ user_profile.nickname }} {% else %} не указан {% endif %}</ul>
+
+
+          </div>
+          <a href="{% url 'changeinf' %}"><button class="profile_change_btn">Редактировать</button></a>
+      </div>
+    </div>
+</div>
+
+
+
+
+
+{% endblock %}

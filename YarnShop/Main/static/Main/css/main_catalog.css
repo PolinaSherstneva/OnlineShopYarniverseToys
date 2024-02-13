@@ -1,0 +1,91 @@
+* {
+   box-sizing: border-box;
+}
+
+.zone_catalog{
+   display:flex;
+   flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.main__inner{
+max-width: 1300px;
+	margin: 0 auto;
+}
+
+.product-item-tovar {
+
+   height: max-content;
+    padding: 0 0 30px 0;
+    margin: 0 0 20px 0;
+    width: 300px;
+    text-align: center;
+    border-radius: 20px;
+    background: white;
+    font-family: "Candara";
+    transition: .3s ease-in;
+
+}
+/* Каталог */
+.catalog_inner{
+  color: black;
+  padding-top:15px;
+}
+.item_item{
+width:260px;
+padding-bottom:10px;
+}
+.item_img{
+height:220px;
+width:200px;
+place-self: center;
+padding-top:20px;
+
+}
+.item_prices{
+display:flex;
+justify-content: space-evenly;
+text-align:center;
+}
+.item_price{
+display:block;
+padding-top:20px;
+}
+.price {
+   font-size: 16px;
+   color: black;
+   display: block;
+   margin-bottom: 12px;
+}
+
+.text h1{
+   font-weight: bold;
+   font-size:20px;
+   padding-bottom:15px;
+   padding-top:15px;
+}
+.text{
+     line-height: 1.625;
+    color: #716164;
+    letter-spacing: .05px;
+}
+.button_in_cardtovar {
+   text-decoration: none;
+
+   display: inline-block;
+   padding: 0 12px;
+   background: #cccccc;
+   color: white;
+   text-transform: uppercase;
+   font-size: 12px;
+   line-height: 28px;
+   transition: .3s ease-in;
+}
+.button_in_cardtovar:hover {
+   background: #8A4F6D;
+   color: white;
+}
+
+
+
+

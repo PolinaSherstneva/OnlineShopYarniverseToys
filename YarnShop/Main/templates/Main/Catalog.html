@@ -1,0 +1,46 @@
+{% extends 'Main/layout.html' %}
+{% load humanize %}
+{% load static %}
+
+
+{% block title %}
+Каталог | Yarniverse Toys - онлайн-магазин материалов для вязания
+{% endblock %}
+
+  {% block content %}
+
+  {% if user.is_superuser %}
+  <a href="{% url 'create' %}"><button class="btn-add"><i class="fas fa-plus-circle"></i>Добавить товар</button></a>
+  {% endif %}
+
+  <div class="text_catalog_title"><h1>Каталог</h1></div>
+  {% if tovar %}
+  <div class="zone_catalog">
+  {% for el in tovar %}
+    <div class="product-item-tovar">
+      {% if el.img_tovar %}
+      <img class="item_img" src="{{ el.img_tovar.url }}">
+      {% endif %}
+      <div class="product-list">
+        <h3>{{ el.name_tovar }}</h3>
+        <span class="price">{{ el.description }}</span>
+        <span class="price">{{ el.price_tovar|intcomma }} ₽</span>
+
+        <a href="{% url 'add_to_cart' el.id %}" class="button_in_cardtovar">В корзину</a>
+        <a href="{% url 'tovar-detail' el.id %}" class="button_in_cardtovar">О товаре</a>
+      </div>
+     </div>
+  {% endfor %}
+
+
+
+    {% else %}
+    <p class="textp">Товара нет!</p>
+
+    {% endif %}
+</div>
+
+
+
+
+{% endblock %}

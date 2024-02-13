@@ -1,0 +1,50 @@
+{% extends 'Main/layout.html' %}
+
+{% load humanize %}
+
+{% block title %}
+{{ tovar.name_tovar }} | Yarniverse Toys - онлайн-магазин материалов для вязания
+{% endblock %}
+
+{% block content %}
+<aside class="container">
+    <div class="catalog_inner">
+
+        <main class="container_">
+            <div class="left_column">
+            {% if tovar.img_tovar %}
+            <img class="img_tov" src="{{ tovar.img_tovar.url }}">
+            {% endif %}
+            </div>
+            <div class="right-column">
+                <div class="product-description">
+
+                <h1>{{ tovar.name_tovar }}</h1>
+                <p>{{ tovar.description }}</p>
+
+                 <p>В наличии: {{ tovar.stock }} шт.</p>
+                </div>
+                <div class="product-price">
+                    <p>{{ tovar.price_tovar|intcomma }} ₽</p>
+                </div>
+            <p class="price">${{ tovar.price }}</p>
+            <form action="{% url 'add_to_cart' tovar.id %}" method="post">
+                {{ cart_product_form }}
+                {% csrf_token %}
+                <input type="submit" value="Add to cart">
+            </form>
+
+
+
+            {% if user.is_superuser %}
+            <a href="{% url 'tovar-update' tovar.id %}" class="button_in_cardtovar">Изменить товар</a>
+            <a href="{% url 'tovar-delete' tovar.id %}" class="button_in_cardtovar">Удалить товар</a>
+             {% endif %}
+            </div>
+        </main>
+
+
+    </div>
+</aside>
+
+{% endblock %}
