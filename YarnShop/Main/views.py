@@ -7,6 +7,7 @@ from django.views.generic import DetailView, UpdateView, DeleteView
 from django.contrib.messages.views import messages
 
 
+
 def lk(request):
     user_profile = None
     if request.user.is_authenticated:
